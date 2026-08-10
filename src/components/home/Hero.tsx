@@ -17,8 +17,11 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const imageX = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+
+  // Vertical only — no sideways shift
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.1]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.35]);
 
   return (
     <section
@@ -26,32 +29,53 @@ export function Hero() {
       className="relative overflow-hidden bg-background"
       style={{ paddingTop: HEADER_HEIGHT, minHeight: "100svh" }}
     >
-      {/* Full-bleed visual plane */}
       <div className="absolute inset-0">
-        <motion.div style={{ x: reduce ? 0 : imageX }} className="absolute inset-0">
+        <motion.div
+          style={{ y: reduce ? 0 : imageY, scale: reduce ? 1.04 : imageScale }}
+          className="absolute inset-[-4%]"
+        >
           <Image
             src="/images/hero-atmosphere.png"
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[70%_center] opacity-90 dark:opacity-100"
+            className="object-cover object-[72%_center] opacity-90 dark:opacity-100"
           />
         </motion.div>
         <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
       </div>
 
-      <div
+      {/* Refined orbital mark — not thin floating rings */}
+      <motion.div
         aria-hidden
-        className="pointer-events-none absolute -right-16 top-[28%] h-[260px] w-[260px] rounded-full border border-heading/10 sm:h-[380px] sm:w-[380px] md:h-[460px] md:w-[460px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-4 top-[40%] h-[160px] w-[160px] rounded-full border border-heading/10 sm:h-[240px] sm:w-[240px]"
-      />
+        initial={reduce ? false : { opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, delay: 0.35, ease }}
+        className="pointer-events-none absolute right-[-8%] top-[18%] hidden h-[420px] w-[420px] md:block lg:right-[4%] lg:top-[20%] lg:h-[480px] lg:w-[480px]"
+      >
+        <motion.div
+          animate={reduce ? undefined : { rotate: 360 }}
+          transition={{ duration: 48, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full border border-accent/25"
+        />
+        <div className="absolute inset-[11%] rounded-full border border-heading/10" />
+        <div className="absolute inset-[24%] rounded-full border border-accent/20" />
+        <div className="absolute inset-[38%] rounded-full bg-accent/5 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="font-serif-cn text-5xl text-accent/50 lg:text-6xl">易</span>
+        </div>
+        <motion.div
+          className="absolute inset-0"
+          animate={reduce ? undefined : { rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          <span className="absolute left-1/2 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_12px_rgba(154,123,69,0.55)]" />
+        </motion.div>
+      </motion.div>
 
       <motion.div
-        style={{ y: reduce ? 0 : textY }}
+        style={{ opacity: reduce ? 1 : contentOpacity }}
         className="relative z-10 mx-auto flex min-h-[calc(100svh-72px)] w-full max-w-6xl flex-col justify-center px-5 py-16 sm:px-8 lg:px-10"
       >
         <div className="max-w-xl lg:max-w-2xl">
