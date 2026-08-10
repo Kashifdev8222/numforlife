@@ -9,5 +9,6 @@ services:
     envVars:
       - key: NODE_VERSION
         value: "20"
+      # Must be 0.0.0.0 — do not leave unset (Linux HOSTNAME breaks Next listen)
       - key: HOSTNAME
         value: "0.0.0.0"
