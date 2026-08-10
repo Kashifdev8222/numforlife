@@ -2,9 +2,9 @@ export type Locale = "zh" | "en";
 
 export const navLinks = [
   { href: "/", label: { zh: "首页", en: "Home" } },
-  { href: "#journey", label: { zh: "探索", en: "Explore" } },
-  { href: "/tarot", label: { zh: "塔罗", en: "Tarot" } },
-  { href: "/about", label: { zh: "关于", en: "About" } },
+  { href: "#experience", label: { zh: "产品服务", en: "Services" } },
+  { href: "/tarot", label: { zh: "塔罗 Lite", en: "Tarot Lite" } },
+  { href: "/about", label: { zh: "关于我们", en: "About" } },
 ] as const;
 
 export const homeContent = {
@@ -24,18 +24,18 @@ export const homeContent = {
       en: "We don’t just guide — we help you understand yourself and others, and own your change.",
     },
     cta: { zh: "请改变自己吧", en: "Begin Your Change" },
-    secondary: { zh: "了解更多", en: "Learn more" },
+    secondary: { zh: "体验塔罗 Lite →", en: "Try Tarot Lite →" },
     start: { zh: "立即开始", en: "Start Now" },
   },
   journey: {
-    eyebrow: { zh: "THE JOURNEY", en: "THE JOURNEY" },
+    eyebrow: { zh: "PRODUCT EXPERIENCE", en: "PRODUCT EXPERIENCE" },
     title: {
-      zh: "滚动，感受人生导航",
-      en: "Scroll into life navigation",
+      zh: "选择一种方式，开始了解自己",
+      en: "Choose a way to understand yourself",
     },
     subtitle: {
-      zh: "三个核心入口，随滚动平滑切换。影像、节奏与交互——为完整产品体验预告。",
-      en: "Three core entries, scrubbed by scroll. Image, rhythm, interaction — a preview of the full product feel.",
+      zh: "姓名学、数字生命、塔罗 Lite——点击切换，感受影像与交互。完整测算与会员权益在 App。",
+      en: "Name study, digital life, Tarot Lite — tap to switch imagery and interaction. Full readings live in the App.",
     },
     chapters: [
       {

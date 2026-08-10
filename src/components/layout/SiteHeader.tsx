@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Container } from "@/components/ui/Container";
 import { homeContent, navLinks } from "@/content/home";
 import { cn } from "@/lib/cn";
@@ -11,12 +12,17 @@ export const HEADER_HEIGHT = 72;
 
 function LogoMark() {
   return (
-    <svg width="30" height="30" viewBox="0 0 34 34" fill="none" aria-hidden className="shrink-0 text-accent">
-      <circle cx="17" cy="17" r="16" stroke="currentColor" strokeWidth="1.2" />
+    <svg width="32" height="32" viewBox="0 0 34 34" fill="none" aria-hidden className="shrink-0 text-accent">
+      <circle cx="17" cy="17" r="16" stroke="currentColor" strokeWidth="1.4" />
       <path
         d="M17 7c3.2 2.4 5.2 5.4 5.2 9.1 0 4.2-2.3 7.4-5.2 9.9-2.9-2.5-5.2-5.7-5.2-9.9C11.8 12.4 13.8 9.4 17 7Z"
         fill="currentColor"
-        opacity="0.95"
+      />
+      <path
+        d="M17 10.2c2.1 1.7 3.4 3.8 3.4 6.2 0 3-1.5 5.3-3.4 7.1-1.9-1.8-3.4-4.1-3.4-7.1 0-2.4 1.3-4.5 3.4-6.2Z"
+        fill="currentColor"
+        className="text-heading"
+        opacity="0.8"
       />
     </svg>
   );
@@ -28,7 +34,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -44,66 +50,72 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-[9999] border-b transition-all duration-300",
-        scrolled || open
-          ? "border-border bg-[var(--nav-bg)] text-heading backdrop-blur-md"
-          : "border-transparent bg-transparent text-heading",
+        "fixed inset-x-0 top-0 z-[9999] border-b bg-[var(--nav-bg)] text-heading backdrop-blur-md transition",
+        scrolled ? "border-border shadow-[var(--shadow)]" : "border-border/60",
       )}
     >
       <Container className="flex items-center gap-3" style={{ height: HEADER_HEIGHT }}>
-        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2">
+        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2.5 text-heading">
           <LogoMark />
           <span className="leading-tight">
-            <span className="block truncate font-serif-cn text-base sm:text-lg">
+            <span className="block truncate font-serif-cn text-lg sm:text-xl">
               {t(homeContent.brand)}
             </span>
-            <span className="hidden text-[10px] tracking-[0.22em] text-muted sm:block">
+            <span className="hidden text-[10px] font-medium tracking-[0.22em] text-muted sm:block">
               {homeContent.brandEn}
             </span>
           </span>
         </Link>
 
-        <nav className="mx-auto hidden items-center gap-7 lg:flex">
+        <nav className="mx-auto hidden items-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-foreground/80 transition hover:text-accent"
+              className="whitespace-nowrap text-sm font-medium text-heading/80 transition hover:text-cta"
             >
               {t(link.label)}
             </Link>
           ))}
         </nav>
 
-        <div className="ml-auto hidden items-center gap-4 lg:flex">
+        <div className="ml-auto hidden items-center gap-3 lg:flex">
           <div className="flex items-center gap-2 text-sm">
             <button
               type="button"
               onClick={() => setLocale("zh")}
-              className={cn(locale === "zh" ? "font-semibold text-heading" : "text-muted hover:text-heading")}
+              className={cn(
+                "transition",
+                locale === "zh" ? "font-semibold text-heading" : "text-muted hover:text-heading",
+              )}
             >
               中文
             </button>
             <button
               type="button"
               onClick={() => setLocale("en")}
-              className={cn(locale === "en" ? "font-semibold text-heading" : "text-muted hover:text-heading")}
+              className={cn(
+                "transition",
+                locale === "en" ? "font-semibold text-heading" : "text-muted hover:text-heading",
+              )}
             >
               EN
             </button>
           </div>
+          <ThemeToggle />
           <a
-            href="#journey"
-            className="inline-flex h-10 items-center justify-center rounded-sm bg-cta px-5 text-xs font-medium text-cta-foreground transition hover:brightness-110"
+            href="#experience"
+            className="inline-flex h-10 items-center justify-center rounded-full bg-cta px-5 text-xs font-medium text-cta-foreground transition hover:brightness-110"
           >
             {t(homeContent.hero.start)}
           </a>
         </div>
 
-        <div className="ml-auto lg:hidden">
+        <div className="ml-auto flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border/60 bg-surface/40"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-heading"
             aria-label="Menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -118,13 +130,13 @@ export function SiteHeader() {
       </Container>
 
       {open ? (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="max-h-[calc(100svh-72px)] overflow-y-auto border-t border-border bg-background lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-2 py-3 text-base text-heading"
+                className="rounded-lg px-2 py-3 text-base font-medium text-heading hover:bg-accent-soft"
                 onClick={() => setOpen(false)}
               >
                 {t(link.label)}
@@ -137,6 +149,15 @@ export function SiteHeader() {
               <button type="button" onClick={() => setLocale("en")} className={locale === "en" ? "font-semibold" : "text-muted"}>
                 EN
               </button>
+            </div>
+            <div className="px-2 pt-2">
+              <a
+                href="#experience"
+                onClick={() => setOpen(false)}
+                className="inline-flex w-full items-center justify-center rounded-full bg-cta px-7 py-3 text-sm font-medium text-cta-foreground"
+              >
+                {t(homeContent.hero.start)}
+              </a>
             </div>
           </Container>
         </div>

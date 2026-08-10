@@ -1,22 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f0e0c;
-  --foreground: #f2ebe1;
+  --background: #f7f2ea;
+  --foreground: #2a2118;
+  --heading: #241c14;
+  --surface: #fffcf7;
+  --surface-muted: #efe6d8;
+  --border: rgba(36, 28, 20, 0.12);
+  --muted: #6f6254;
+  --accent: #9a7b45;
+  --accent-soft: rgba(154, 123, 69, 0.14);
+  --cta: #8b3e32;
+  --cta-foreground: #fffaf5;
+  --ring: rgba(139, 62, 50, 0.3);
+  --nav-bg: rgba(247, 242, 234, 0.94);
+  --hero-overlay: linear-gradient(
+    105deg,
+    rgba(247, 242, 234, 0.96) 0%,
+    rgba(247, 242, 234, 0.82) 42%,
+    rgba(247, 242, 234, 0.35) 100%
+  );
+  --shadow: 0 16px 40px rgba(36, 28, 20, 0.08);
+}
+
+.dark {
+  --background: #14110e;
+  --foreground: #efe6d8;
   --heading: #f7f1e8;
-  --surface: #1a1714;
-  --surface-muted: #221e1a;
-  --border: rgba(242, 235, 225, 0.12);
+  --surface: #1c1814;
+  --surface-muted: #262019;
+  --border: rgba(239, 230, 216, 0.12);
   --muted: #b4a796;
-  --accent: #c6a15c;
-  --accent-soft: rgba(198, 161, 92, 0.16);
-  --cta: #d8b56a;
-  --cta-foreground: #1a140e;
-  --ring: rgba(198, 161, 92, 0.4);
-  --nav-bg: rgba(15, 14, 12, 0.72);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  --paper: #f4efe6;
-  --ink: #0f0e0c;
+  --accent: #d0b06a;
+  --accent-soft: rgba(208, 176, 106, 0.16);
+  --cta: #c45a48;
+  --cta-foreground: #fff8f4;
+  --ring: rgba(196, 90, 72, 0.4);
+  --nav-bg: rgba(20, 17, 14, 0.94);
+  --hero-overlay: linear-gradient(
+    105deg,
+    rgba(20, 17, 14, 0.94) 0%,
+    rgba(20, 17, 14, 0.78) 42%,
+    rgba(20, 17, 14, 0.45) 100%
+  );
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
 @theme inline {
@@ -32,8 +59,6 @@
   --color-cta: var(--cta);
   --color-cta-foreground: var(--cta-foreground);
   --color-ring: var(--ring);
-  --color-paper: var(--paper);
-  --color-ink: var(--ink);
   --font-sans: var(--font-noto-sans), "Noto Sans SC", sans-serif;
   --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
   --font-serif-cn: var(--font-noto-serif), "Noto Serif SC", serif;
@@ -60,7 +85,6 @@ video {
 
 ::selection {
   background: var(--accent-soft);
-  color: var(--heading);
 }
 
 .font-display {

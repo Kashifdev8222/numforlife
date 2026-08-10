@@ -1,7 +1,7 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { ExperienceShowcase } from "./ExperienceShowcase";
 import { Footer } from "./Footer";
 import { Hero } from "./Hero";
-import { ImmersiveJourney } from "./ImmersiveJourney";
 
 export function HomePage() {
   return (
@@ -9,7 +9,7 @@ export function HomePage() {
       <SiteHeader />
       <main className="overflow-x-hidden">
         <Hero />
-        <ImmersiveJourney />
+        <ExperienceShowcase />
       </main>
       <Footer />
     </>
