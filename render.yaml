@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: numforlife
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: HOSTNAME
+        value: "0.0.0.0"

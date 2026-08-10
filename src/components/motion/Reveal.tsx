@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 export function Reveal({
   children,
@@ -15,8 +15,14 @@ export function Reveal({
   y?: number;
 }) {
   const reduce = useReducedMotion();
+  const [ready, setReady] = useState(false);
 
-  if (reduce) {
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  // Keep content visible if JS is slow/fails (no blank page)
+  if (reduce || !ready) {
     return <div className={className}>{children}</div>;
   }
 
@@ -25,7 +31,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.28 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}

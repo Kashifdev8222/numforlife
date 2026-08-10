@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
@@ -11,7 +10,6 @@ const tones = ["bg-[#efe6ff] text-[#6b4aa8]", "bg-[#e5f0ff] text-[#3d6fad]", "bg
 
 export function ProductEntries() {
   const { t } = useLanguage();
-  const reduce = useReducedMotion();
 
   return (
     <section id="entries" className="scroll-mt-24 bg-background py-20 sm:py-24">
@@ -30,13 +28,7 @@ export function ProductEntries() {
 
         <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 xl:grid-cols-4">
           {homeContent.entries.items.map((item, index) => (
-            <motion.div
-              key={item.title.zh}
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.25 }}
-              transition={{ delay: reduce ? 0 : index * 0.07, duration: 0.45 }}
-            >
+            <Reveal key={item.title.zh} delay={index * 0.07}>
               <Link
                 href={item.href}
                 className="group flex h-full flex-col rounded-2xl border border-border bg-surface p-5 shadow-[var(--shadow)] transition hover:-translate-y-1"
@@ -60,7 +52,7 @@ export function ProductEntries() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </Container>
