@@ -2,9 +2,8 @@ export type Locale = "zh" | "en";
 
 export const navLinks = [
   { href: "/", label: { zh: "首页", en: "Home" } },
-  { href: "#about", label: { zh: "关于我们", en: "About" } },
-  { href: "#services", label: { zh: "产品服务", en: "Services" } },
-  { href: "#results", label: { zh: "成果展示", en: "Results" } },
+  { href: "#experience", label: { zh: "塔罗体验", en: "Experience" } },
+  { href: "#paths", label: { zh: "产品路径", en: "Paths" } },
   { href: "#join", label: { zh: "加入我们", en: "Join" } },
 ] as const;
 
@@ -16,12 +15,120 @@ export const homeContent = {
       zh: "数易赋能，您的人生导航",
       en: "Shuyi — Your Life Navigation",
     },
+    line: {
+      zh: "您的人生导航",
+      en: "Your life navigation",
+    },
     subtitle: {
       zh: "我们不只指引 —— 我们帮助您理解自己与他人，掌控属于自己的改变。",
       en: "We don’t just guide — we help you understand yourself and others, and own your change.",
     },
-    cta: { zh: "请改变自己吧", en: "Begin Your Change" },
+    cta: { zh: "体验塔罗", en: "Try Tarot" },
+    secondary: { zh: "探索产品路径", en: "Explore paths" },
     start: { zh: "立即开始", en: "Start Now" },
+  },
+  experience: {
+    eyebrow: { zh: "INTERACTIVE DEMO", en: "INTERACTIVE DEMO" },
+    title: { zh: "塔罗轻体验 · 翻开一张牌", en: "Tarot Lite · Draw a card" },
+    subtitle: {
+      zh: "把鼠标移上牌面，点击翻开。网页端即可感受选牌与解读——优雅、沉浸、可继续扩展为完整塔罗流程。",
+      en: "Hover, click, reveal. Feel the draw-and-read flow on the web — elegant, immersive, ready to grow into full tarot.",
+    },
+    hint: {
+      zh: "选择一张牌，感受选牌与翻牌动画",
+      en: "Choose a card to feel the draw & flip motion",
+    },
+    note: {
+      zh: "演示解读 · 完整牌阵与深度分析请前往 Shuyi App",
+      en: "Demo insight · Full spreads live in the Shuyi App",
+    },
+    cards: [
+      {
+        arcana: "I · THE MAGICIAN",
+        title: { zh: "魔术师", en: "The Magician" },
+        body: {
+          zh: "意志与行动对齐的时刻。你已具备资源，关键是把意图落地。",
+          en: "Will meets action. You already hold the tools — now make intent real.",
+        },
+        cue: { zh: "关键词：创造 · 聚焦", en: "Keywords: create · focus" },
+        insight: {
+          zh: "今天适合启动一件被搁置的事——从小步骤开始。",
+          en: "A good day to start something paused — begin with one small step.",
+        },
+      },
+      {
+        arcana: "II · THE HIGH PRIESTESS",
+        title: { zh: "女祭司", en: "The High Priestess" },
+        body: {
+          zh: "答案不在喧闹里。慢下来，听见内在已经知道的那部分。",
+          en: "The answer isn’t in the noise. Slow down and hear what you already know.",
+        },
+        cue: { zh: "关键词：直觉 · 静观", en: "Keywords: intuition · stillness" },
+        insight: {
+          zh: "先观察，再决定。信息会在安静中变得清晰。",
+          en: "Observe before deciding. Clarity arrives in quiet.",
+        },
+      },
+      {
+        arcana: "X · WHEEL OF FORTUNE",
+        title: { zh: "命运之轮", en: "Wheel of Fortune" },
+        body: {
+          zh: "周期在转动。变化不是威胁，而是重新对齐方向的邀请。",
+          en: "Cycles turn. Change isn’t a threat — it’s an invitation to realign.",
+        },
+        cue: { zh: "关键词：转折 · 时机", en: "Keywords: turning · timing" },
+        insight: {
+          zh: "拥抱正在发生的转变，把注意力放在你能影响的那一环。",
+          en: "Embrace the shift, and focus on the one link you can influence.",
+        },
+      },
+    ],
+  },
+  paths: {
+    eyebrow: { zh: "PRODUCT PATHS", en: "PRODUCT PATHS" },
+    title: { zh: "三条路径，进入数字人生", en: "Three paths into your digital life" },
+    subtitle: {
+      zh: "姓名、生日、塔罗——三条核心入口，影像与动效呈现产品深度与品牌气质。",
+      en: "Name, birthday, tarot — three core entries with cinematic depth and brand presence.",
+    },
+    items: [
+      {
+        href: "/cesuan",
+        tag: { zh: "姓名学", en: "Name study" },
+        title: { zh: "一字定乾坤", en: "A name holds destiny" },
+        body: {
+          zh: "笔画、音韵与五行交织，看见性格底色与人生节奏——网站预览，App 完整解读。",
+          en: "Strokes, sound, and five elements reveal character and rhythm — preview on web, depth in app.",
+        },
+        cta: { zh: "预览姓名测算", en: "Preview name reading" },
+        image:
+          "https://numforlife.com/wp-content/uploads/2025/06/Zodiac-Clock-Detail-1.avif",
+      },
+      {
+        href: "/cesuan",
+        tag: { zh: "数字生命", en: "Digital life" },
+        title: { zh: "从数字看见潜能", en: "See potential in numbers" },
+        body: {
+          zh: "生日能量映射生命路径。不是迷信，而是觉察与决策的现代工具。",
+          en: "Birth energy maps your life path — awareness and decisions, not superstition.",
+        },
+        cta: { zh: "预览生日测算", en: "Preview birthday reading" },
+        image:
+          "https://numforlife.com/wp-content/uploads/2025/06/77a7d0_0b3b028fa90c4fb9862f1f13c3ac2810mv2.png",
+      },
+      {
+        href: "/tarot",
+        tag: { zh: "塔罗占卜", en: "Tarot" },
+        title: { zh: "为当下课题找光", en: "Light for today’s question" },
+        body: {
+          zh: "网页端体验选牌与解读动线，展示我们能把复杂流程做成优雅交互。",
+          en: "Web draw-and-read flow — proof we can turn complex journeys into elegant UX.",
+        },
+        cta: { zh: "进入塔罗页面", en: "Open tarot page" },
+        image:
+          "https://numforlife.com/wp-content/uploads/2025/06/77a7d0_3ce398a3fd4a4b24be4963111688e2f8mv2.png",
+      },
+    ],
   },
   download: {
     title: { zh: "加入我们的移动端！", en: "Join us on mobile!" },

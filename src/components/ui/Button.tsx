@@ -28,7 +28,7 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium tracking-wide transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+    "inline-flex items-center justify-center rounded-md px-7 py-3 text-sm font-medium tracking-wide transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     variants[variant],
     className,
   );

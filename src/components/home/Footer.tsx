@@ -25,7 +25,7 @@ export function Footer() {
             {t({ zh: "产品服务", en: "Services" })}
           </p>
           <div className="flex flex-col gap-2 text-sm text-muted">
-            <Link href="#entries">{t({ zh: "测算入口", en: "Calculations" })}</Link>
+            <Link href="#paths">{t({ zh: "产品路径", en: "Paths" })}</Link>
             <Link href="/tarot">{t({ zh: "塔罗 Lite", en: "Tarot Lite" })}</Link>
             <Link href="/membership">{t({ zh: "会员", en: "Membership" })}</Link>
           </div>
@@ -36,7 +36,7 @@ export function Footer() {
             {t({ zh: "关于我们", en: "About" })}
           </p>
           <div className="flex flex-col gap-2 text-sm text-muted">
-            <Link href="#about">{t({ zh: "品牌故事", en: "Brand story" })}</Link>
+            <Link href="#experience">{t({ zh: "塔罗体验", en: "Experience" })}</Link>
             <Link href="#join">{t({ zh: "加入我们", en: "Join us" })}</Link>
           </div>
         </div>

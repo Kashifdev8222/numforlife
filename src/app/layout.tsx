@@ -22,9 +22,9 @@ const serifCn = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "数易赋能 | Shuyi — Homepage Demo",
+  title: "数易赋能 | Shuyi — Homepage",
   description:
-    "数易赋能 homepage demo — Next.js rebuild of numforlife.com with light/dark mode, Chinese support, and key interactions.",
+    "数易赋能 — 数字生命能量学与现代自我认知。塔罗轻体验、姓名测算与人生导航。",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
