@@ -9,50 +9,23 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-border bg-background py-14">
-      <Container className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+    <footer className="border-t border-border bg-background py-14 text-foreground">
+      <Container className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="font-serif-cn text-2xl text-heading">{t(homeContent.brand)}</p>
-          <p className="mt-1 text-[10px] tracking-[0.22em] text-muted">
-            {homeContent.brandEn}
-          </p>
+          <p className="mt-1 text-[10px] tracking-[0.22em] text-muted">{homeContent.brandEn}</p>
           <p className="mt-4 max-w-sm text-sm text-muted">{t(homeContent.footer.blurb)}</p>
-          <p className="mt-3 text-xs text-muted/80">{t(homeContent.footer.demo)}</p>
         </div>
-
-        <div>
-          <p className="mb-3 text-sm font-medium text-heading">
-            {t({ zh: "产品服务", en: "Services" })}
-          </p>
-          <div className="flex flex-col gap-2 text-sm text-muted">
-            <Link href="#paths">{t({ zh: "产品路径", en: "Paths" })}</Link>
-            <Link href="/tarot">{t({ zh: "塔罗 Lite", en: "Tarot Lite" })}</Link>
-            <Link href="/membership">{t({ zh: "会员", en: "Membership" })}</Link>
-          </div>
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="transition hover:text-accent">
+              {t(link.label)}
+            </Link>
+          ))}
         </div>
-
-        <div>
-          <p className="mb-3 text-sm font-medium text-heading">
-            {t({ zh: "关于我们", en: "About" })}
-          </p>
-          <div className="flex flex-col gap-2 text-sm text-muted">
-            <Link href="#experience">{t({ zh: "塔罗体验", en: "Experience" })}</Link>
-            <Link href="#join">{t({ zh: "加入我们", en: "Join us" })}</Link>
-          </div>
-        </div>
-
-        <div>
-          <p className="mb-3 text-sm font-medium text-heading">
-            {t({ zh: "导航", en: "Navigate" })}
-          </p>
-          <div className="flex flex-col gap-2 text-sm text-muted">
-            {navLinks.map((l) => (
-              <Link key={l.href} href={l.href}>
-                {t(l.label)}
-              </Link>
-            ))}
-          </div>
-        </div>
+      </Container>
+      <Container className="mt-10">
+        <p className="text-xs text-muted/70">{t(homeContent.footer.demo)}</p>
       </Container>
     </footer>
   );

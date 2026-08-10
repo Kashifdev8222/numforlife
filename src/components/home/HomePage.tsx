@@ -1,9 +1,7 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { FinalCta } from "./FinalCta";
 import { Footer } from "./Footer";
 import { Hero } from "./Hero";
-import { PathShowcase } from "./PathShowcase";
-import { TarotExperience } from "./TarotExperience";
+import { ImmersiveJourney } from "./ImmersiveJourney";
 
 export function HomePage() {
   return (
@@ -11,9 +9,7 @@ export function HomePage() {
       <SiteHeader />
       <main className="overflow-x-hidden">
         <Hero />
-        <TarotExperience />
-        <PathShowcase />
-        <FinalCta />
+        <ImmersiveJourney />
       </main>
       <Footer />
     </>

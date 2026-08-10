@@ -2,9 +2,9 @@ export type Locale = "zh" | "en";
 
 export const navLinks = [
   { href: "/", label: { zh: "首页", en: "Home" } },
-  { href: "#experience", label: { zh: "塔罗体验", en: "Experience" } },
-  { href: "#paths", label: { zh: "产品路径", en: "Paths" } },
-  { href: "#join", label: { zh: "加入我们", en: "Join" } },
+  { href: "#journey", label: { zh: "探索", en: "Explore" } },
+  { href: "/tarot", label: { zh: "塔罗", en: "Tarot" } },
+  { href: "/about", label: { zh: "关于", en: "About" } },
 ] as const;
 
 export const homeContent = {
@@ -23,9 +23,55 @@ export const homeContent = {
       zh: "我们不只指引 —— 我们帮助您理解自己与他人，掌控属于自己的改变。",
       en: "We don’t just guide — we help you understand yourself and others, and own your change.",
     },
-    cta: { zh: "体验塔罗", en: "Try Tarot" },
-    secondary: { zh: "探索产品路径", en: "Explore paths" },
+    cta: { zh: "请改变自己吧", en: "Begin Your Change" },
+    secondary: { zh: "了解更多", en: "Learn more" },
     start: { zh: "立即开始", en: "Start Now" },
+  },
+  journey: {
+    eyebrow: { zh: "THE JOURNEY", en: "THE JOURNEY" },
+    title: {
+      zh: "滚动，感受人生导航",
+      en: "Scroll into life navigation",
+    },
+    subtitle: {
+      zh: "三个核心入口，随滚动平滑切换。影像、节奏与交互——为完整产品体验预告。",
+      en: "Three core entries, scrubbed by scroll. Image, rhythm, interaction — a preview of the full product feel.",
+    },
+    chapters: [
+      {
+        tag: { zh: "01 · 姓名学", en: "01 · NAME" },
+        title: { zh: "一字定乾坤", en: "A name holds destiny" },
+        body: {
+          zh: "笔画、音韵与五行交织，看见性格底色与人生节奏。",
+          en: "Strokes, sound, and five elements reveal character and life rhythm.",
+        },
+        cta: { zh: "预览姓名测算", en: "Preview name reading" },
+        href: "/cesuan",
+        image: "/images/chapter-name.png",
+      },
+      {
+        tag: { zh: "02 · 数字生命", en: "02 · DIGITAL LIFE" },
+        title: { zh: "从数字看见潜能", en: "See potential in numbers" },
+        body: {
+          zh: "生日能量映射生命路径——觉察与决策的现代工具。",
+          en: "Birth energy maps your path — a modern tool for awareness and choice.",
+        },
+        cta: { zh: "预览生日测算", en: "Preview birthday reading" },
+        href: "/cesuan",
+        image: "/images/chapter-life.png",
+      },
+      {
+        tag: { zh: "03 · 塔罗", en: "03 · TAROT" },
+        title: { zh: "为当下课题找光", en: "Light for today’s question" },
+        body: {
+          zh: "网页端选牌与解读动线，展示优雅、可扩展的交互能力。",
+          en: "A web draw-and-read flow that shows elegant, expandable interaction.",
+        },
+        cta: { zh: "进入塔罗体验", en: "Enter tarot" },
+        href: "/tarot",
+        image: "/images/chapter-tarot.png",
+      },
+    ],
   },
   experience: {
     eyebrow: { zh: "INTERACTIVE DEMO", en: "INTERACTIVE DEMO" },
