@@ -3,8 +3,9 @@ export type Locale = "zh" | "en";
 export const navLinks = [
   { href: "/", label: { zh: "首页", en: "Home" } },
   { href: "#experience", label: { zh: "产品服务", en: "Services" } },
-  { href: "/tarot", label: { zh: "塔罗 Lite", en: "Tarot Lite" } },
-  { href: "/about", label: { zh: "关于我们", en: "About" } },
+  { href: "#about", label: { zh: "关于我们", en: "About" } },
+  { href: "#tarot-lite", label: { zh: "塔罗 Lite", en: "Tarot Lite" } },
+  { href: "#stories", label: { zh: "用户故事", en: "Stories" } },
 ] as const;
 
 export const homeContent = {

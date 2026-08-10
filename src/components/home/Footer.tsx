@@ -22,6 +22,9 @@ export function Footer() {
               {t(link.label)}
             </Link>
           ))}
+          <Link href="#join" className="hover:text-cta">
+            {t({ zh: "加入我们", en: "Join" })}
+          </Link>
         </div>
       </Container>
       <Container className="mt-8">
